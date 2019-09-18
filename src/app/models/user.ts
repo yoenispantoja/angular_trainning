@@ -6,4 +6,5 @@ export class User {
   email: string;
   name: string;
   ob: string;
+  notas: string;
 }
