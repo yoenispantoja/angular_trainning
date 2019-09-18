@@ -1,0 +1,10 @@
+<div *ngIf="this.myCarDetail">
+    <h1>Car details:</h1>
+    <hr>
+    <div class="carDetails">
+        <p><strong>Name: </strong>{{this.myCarDetail.name | uppercase}}</p>
+        <p><strong>Model: </strong>{{this.myCarDetail.model}}</p>
+        <p><strong>Length: </strong>{{this.myCarDetail.length}}</p>
+    </div>
+
+</div>

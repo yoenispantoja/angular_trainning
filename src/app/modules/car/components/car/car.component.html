@@ -1,0 +1,38 @@
+<div fxLayout="row" fxLayoutGap="20px">
+    <div fxFlex="70%">
+        <h1>Cars list</h1>
+        <table>
+            <thead class="box">
+                <tr>
+                    <th>Name</th>
+                    <th>Model</th>
+                    <th>Length</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-template ngFor let-car [ngForOf]="this.myStarWarVehicles">
+                    <tr>
+                        <td>
+                            {{car.name | uppercase}}
+                        </td>
+                        <td>
+                            {{car.model}}
+                        </td>
+                        <td>
+                            {{car.length}}
+                        </td>
+
+                        <td>
+                            <button mat-raised-button (click)="this.selectVehicle(car)">See more</button> </td>
+                    </tr>
+                </ng-template>
+            </tbody>
+        </table>
+    </div>
+    <div fxFlex>
+        <app-car-details [myCarDetail]="this.selectedCar"></app-car-details>
+    </div>
+</div>
+
+<br>

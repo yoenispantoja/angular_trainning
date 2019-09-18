@@ -1,0 +1,56 @@
+<h1>Users List</h1>
+<div *ngIf="!this.users">
+    ...Waiting for data of json
+</div>
+<div fxLayout="row" fxLayoutGap="30px">
+    <div fxFlex="90%">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+        <table mat-table [dataSource]="this.dataSource" matSort class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header><strong>No. </strong> </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="first_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Name</strong> </th>
+                <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="last_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Last Name</strong> </th>
+                <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Email</strong> </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="avatar">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Avatar</strong> </th>
+                <td width="80px" style="text-align: center" mat-cell *matCellDef="let element"> <img src="{{element.avatar}}" width="50%" alt=""> </td>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell style="text-align: center; padding-left: 20px" *matCellDef="let element"> <button mat-raised-button [color]="'primary'" (click)="this.seeMore(element)">See more</button> </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+
+</div>

@@ -1,0 +1,12 @@
+table {
+    border: 1px solid black;
+    width: 100%;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+.miestilo {
+    background-color: azure;
+}
